@@ -10,14 +10,14 @@ lazy val globalSettings: Seq[sbt.Def.SettingsDefinition] =
     inThisBuild(
       List(
         organization := "com.example",
-        scalaVersion := "2.12.6",
+        scalaVersion := "2.12.7",
         version := "0.1.0-SNAPSHOT"
       )),
     updateOptions := updateOptions.value.withCachedResolution(true),
     wartremoverErrors in (Compile, compile) := warts,
     wartremoverWarnings in (Compile, console) := warts,
-    addCompilerPlugin("io.tryp" % "splain" % "0.3.1" cross CrossVersion.patch),
-    addCompilerPlugin("org.spire-math" % "kind-projector" % "0.9.7" cross CrossVersion.binary),
+    addCompilerPlugin("io.tryp" % "splain" % "0.3.3" cross CrossVersion.patch),
+    addCompilerPlugin("org.spire-math" % "kind-projector" % "0.9.8" cross CrossVersion.binary),
     scalafmtOnCompile := true,
     libraryDependencies += "org.scalatest" %%% "scalatest" % "3.0.5" % Test
   )
