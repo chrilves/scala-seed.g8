@@ -16,7 +16,7 @@ lazy val globalSettings: Seq[sbt.Def.SettingsDefinition] =
     updateOptions := updateOptions.value.withCachedResolution(true),
     wartremoverErrors in (Compile, compile) := warts,
     wartremoverWarnings in (Compile, console) := warts,
-    addCompilerPlugin("io.tryp" % "splain" % "0.3.3" cross CrossVersion.patch),
+    addCompilerPlugin("io.tryp" % "splain" % "0.3.4" cross CrossVersion.patch),
     addCompilerPlugin("org.spire-math" % "kind-projector" % "0.9.8" cross CrossVersion.binary),
     scalafmtOnCompile := true,
     libraryDependencies += "org.scalatest" %%% "scalatest" % "3.0.5" % Test
