@@ -19,7 +19,7 @@ lazy val globalSettings: Seq[sbt.Def.SettingsDefinition] =
     addCompilerPlugin("io.tryp" % "splain" % "0.4.1" cross CrossVersion.patch),
     addCompilerPlugin("org.spire-math" % "kind-projector" % "0.9.10" cross CrossVersion.binary),
     scalafmtOnCompile := true,
-    libraryDependencies += "org.scalatest" %%% "scalatest" % "3.0.7" % Test
+    libraryDependencies += "org.scalatest" %%% "scalatest" % "3.0.8" % Test
   )
 
 lazy val root =
