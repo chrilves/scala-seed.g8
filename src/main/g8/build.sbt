@@ -26,7 +26,7 @@ lazy val warts = {
   )
 }
 
-lazy val catsVersion = "2.1.1"
+lazy val catsVersion = "2.1.4"
 lazy val enumeratumVersion = "1.5.15"
 
 lazy val globalSettings: Seq[sbt.Def.SettingsDefinition] =
@@ -40,14 +40,14 @@ lazy val globalSettings: Seq[sbt.Def.SettingsDefinition] =
     updateOptions := updateOptions.value.withCachedResolution(true),
     wartremoverErrors in (Compile, compile) := warts,
     wartremoverWarnings in (Compile, console) := warts,
-    addCompilerPlugin("io.tryp" % "splain" % "0.5.1" cross CrossVersion.patch),
+    addCompilerPlugin("io.tryp" % "splain" % "0.5.7" cross CrossVersion.patch),
     addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
     scalafmtOnCompile := true,
     libraryDependencies ++= Seq(
       "com.beachape"  %%% "enumeratum"  % enumeratumVersion,
       "org.typelevel" %%% "cats-core"   % catsVersion,
       "org.typelevel" %%% "cats-effect" % catsVersion,
-      "org.scalatest" %%% "scalatest" % "3.1.1" % Test
+      "org.scalatest" %%% "scalatest" % "3.2.0" % Test
     )
   )
 
