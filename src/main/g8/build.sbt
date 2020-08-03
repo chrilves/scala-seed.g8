@@ -1,4 +1,4 @@
-enablePlugins(JavaAppPackaging)
+enablePlugins(JavaAppPackaging, ScalaJSPlugin)
 
 // voir http://www.wartremover.org/
 lazy val warts = {
@@ -34,7 +34,7 @@ lazy val globalSettings: Seq[sbt.Def.SettingsDefinition] =
     inThisBuild(
       List(
         organization := "com.example",
-        scalaVersion := "2.13.1",
+        scalaVersion := "2.13.3",
         version := "0.1.0-SNAPSHOT"
       )),
     updateOptions := updateOptions.value.withCachedResolution(true),
@@ -44,15 +44,20 @@ lazy val globalSettings: Seq[sbt.Def.SettingsDefinition] =
     addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
     scalafmtOnCompile := true,
     libraryDependencies ++= Seq(
-      "com.beachape" %% "enumeratum" % enumeratumVersion,
-      "org.typelevel" %% "cats-core" % catsVersion,
-      "org.typelevel" %% "cats-effect" % catsVersion,
-      "org.scalatest" %% "scalatest" % "3.1.1" % Test
+      "com.beachape"  %%% "enumeratum"  % enumeratumVersion,
+      "org.typelevel" %%% "cats-core"   % catsVersion,
+      "org.typelevel" %%% "cats-effect" % catsVersion,
+      "org.scalatest" %%% "scalatest" % "3.1.1" % Test
     )
   )
 
 lazy val root =
-  project
+  crossProject(JSPlatform, JVMPlatform)
+    .crossType(CrossType.Pure)
     .in(file("."))
-    .settings(globalSettings : _*)
+    .settings(globalSettings:_*)
     .settings(name := "$name$")
+    .jsSettings(scalaJSUseMainModuleInitializer := true)
+
+lazy val rootJS     = root.js
+lazy val rootJVM    = root.jvm
