@@ -26,7 +26,7 @@ lazy val warts = {
   )
 }
 
-lazy val catsVersion = "2.1.4"
+lazy val catsVersion = "2.1.1"
 lazy val enumeratumVersion = "1.6.1"
 
 lazy val globalSettings: Seq[sbt.Def.SettingsDefinition] =
@@ -46,7 +46,7 @@ lazy val globalSettings: Seq[sbt.Def.SettingsDefinition] =
     libraryDependencies ++= Seq(
       "com.beachape"  %%% "enumeratum"  % enumeratumVersion,
       "org.typelevel" %%% "cats-core"   % catsVersion,
-      "org.typelevel" %%% "cats-effect" % catsVersion,
+      "org.typelevel" %%% "cats-effect" % "2.1.4",
       "org.scalatest" %%% "scalatest" % "3.2.0" % Test
     )
   )
