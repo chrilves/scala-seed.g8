@@ -27,7 +27,7 @@ lazy val warts = {
 }
 
 lazy val catsVersion = "2.1.4"
-lazy val enumeratumVersion = "1.5.15"
+lazy val enumeratumVersion = "1.6.1"
 
 lazy val globalSettings: Seq[sbt.Def.SettingsDefinition] =
   Seq(
